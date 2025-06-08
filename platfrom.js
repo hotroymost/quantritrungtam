@@ -3,12 +3,15 @@ function getPlatform() {
 
     const isTablet = /ipad|tablet|(android(?!.*mobile))/i.test(ua);
     const isMobile = /mobi|android|iphone/i.test(ua);
+    console.log("User Agent:", ua);
+    console.log("Is Tablet:", isTablet);
 
     if (isTablet) return 'tablet';
     if (isMobile) return 'mobile';
     return 'desktop';
 }
 
+console.log("Platform:", getPlatform());
 const platform = getPlatform();
 
 const baseURL = "https://www.appsheet.com/start/a7157b16-7592-4398-a7ef-7bd9689a7886"
