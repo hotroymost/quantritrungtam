@@ -4,35 +4,57 @@
   <meta charset="UTF-8">
   <title>Ymost</title>
   <style>
-    html, body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html, body {
       height: 100%;
-    }
-    #logOutput {
-      max-height: 150px;
-      overflow-y: auto;
-      background: #eee;
-      padding: 10px;
-      font-size: 14px;
-      font-family: monospace;
-      white-space: pre-wrap;
-      border-bottom: 1px solid #ccc;
-    }
-    iframe {
       width: 100%;
-      height: calc(100% - 150px); /* trừ phần log */
+      font-family: Arial, sans-serif;
+    }
+
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       border: none;
+    }
+
+    /* Optional: Add header or footer */
+    .header {
+      padding: 10px;
+      background-color: #1f2937;
+      color: #fff;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
   <!-- <pre id="logOutput">[LOG]:</pre> -->
-  <iframe 
-    src="https://www.appsheet.com/start/a7157b16-7592-4398-a7ef-7bd9689a7886" 
-    style="border: none; width: 100%; height: 100vh;" 
-    allowfullscreen>
-  </iframe>
+  <div class="iframe-container">
+    <iframe
+      src="https://www.appsheet.com/start/a7157b16-7592-4398-a7ef-7bd9689a7886"
+      allowfullscreen>
+    </iframe>
+  </div>
 
   <!-- <script>
     // Ghi log ra cả console và HTML
