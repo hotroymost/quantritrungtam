@@ -27,37 +27,37 @@
   </style>
 </head>
 <body>
-  <pre id="logOutput">[LOG]:</pre>
-  <iframe id="appIframe"></iframe>
+  <!-- <pre id="logOutput">[LOG]:</pre> -->
+  <iframe id="appIframe" src="https://www.appsheet.com/start/a7157b16-7592-4398-a7ef-7bd9689a7886"></iframe>
 
   <script>
     // Ghi log ra cả console và HTML
-    const log = (msg) => {
-      const el = document.getElementById('logOutput');
-      el.textContent += '\n' + msg;
-      console.log(msg); // vẫn giữ console cho máy tính
-    };
+    // const log = (msg) => {
+    //   const el = document.getElementById('logOutput');
+    //   el.textContent += '\n' + msg;
+    //   console.log(msg); // vẫn giữ console cho máy tính
+    // };
 
-    function getPlatform() {
-      const ua = navigator.userAgent.toLowerCase();
-      const isTablet = /ipad|tablet|(android(?!.*mobile))/i.test(ua);
-      const isMobile = /mobi|android|iphone/i.test(ua);
+    // function getPlatform() {
+    //   const ua = navigator.userAgent.toLowerCase();
+    //   const isTablet = /ipad|tablet|(android(?!.*mobile))/i.test(ua);
+    //   const isMobile = /mobi|android|iphone/i.test(ua);
 
-      log("User Agent: " + ua);
-      log("Is Tablet: " + isTablet);
+    //   log("User Agent: " + ua);
+    //   log("Is Tablet: " + isTablet);
 
-      if (isTablet) return 'tablet';
-      if (isMobile) return 'mobile';
-      return 'desktop';
-    }
+    //   if (isTablet) return 'tablet';
+    //   if (isMobile) return 'mobile';
+    //   return 'desktop';
+    // }
 
-    const platform = getPlatform();
-    log("Platform: " + platform);
+    // const platform = getPlatform();
+    // log("Platform: " + platform);
 
-    const baseURL = "https://www.appsheet.com/start/a7157b16-7592-4398-a7ef-7bd9689a7886";
-    const url = `${baseURL}?platform=${platform}#appName=Qu%E1%BA%A3nl%C3%BDTrungt%C3%A2m-49751858`;
-    log("App URL: " + url);
-    document.getElementById("appIframe").src = url;
+    // const baseURL = "https://www.appsheet.com/start/a7157b16-7592-4398-a7ef-7bd9689a7886";
+    // const url = `${baseURL}?platform=${platform}appName=QuảnlýTrungtâm-49751858&vss=H4sIAAAAAAAAA52OvQ4CIRCE32VqnoDWmGiMNhobscBjSYh3cDk49UJ4dxd_Yqt2u7PzzU7GxdF1m3Rzhjzkz7aiCRJZYTf1pCAVZsGnIbQKQmGju6e4CHUoKEfxZhNFyPw9Kv__KuAM-eSso6HmVIr5F8PnSrBQ_SgC3Zj0qaVHSfaXwpoNzRjJ7LnCj6_j0s9vvfZmHQzHWd1GKndbTHqGUQEAAA==&view=Home`;
+    // log("App URL: " + url);
+    // document.getElementById("appIframe").src = url;
   </script>
 </body>
 </html>
