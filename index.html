@@ -40,13 +40,13 @@
 
     function getPlatform() {
       const ua = navigator.userAgent.toLowerCase();
-      const isTablet = /ipad|tablet|(android(?!.*mobile))/i.test(ua);
+      // const isTablet = /ipad|tablet|(android(?!.*mobile))/i.test(ua);
       const isMobile = /mobi|android|iphone/i.test(ua);
 
       log("User Agent: " + ua);
-      log("Is Tablet: " + isTablet);
+      log("Is mobile: " + isMobile);
 
-      if (isTablet) return 'tablet';
+      // if (isTablet) return 'tablet';
       if (isMobile) return 'mobile';
       return 'desktop';
     }
