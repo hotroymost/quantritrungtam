@@ -9,40 +9,52 @@
       padding: 0;
       height: 100%;
     }
+    #logOutput {
+      max-height: 150px;
+      overflow-y: auto;
+      background: #eee;
+      padding: 10px;
+      font-size: 14px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      border-bottom: 1px solid #ccc;
+    }
     iframe {
       width: 100%;
-      height: 100%;
+      height: calc(100% - 150px); /* trừ phần log */
       border: none;
     }
   </style>
 </head>
 <body>
-  <pre id="logOutput"></pre>
+  <pre id="logOutput">[LOG]:</pre>
   <iframe id="appIframe"></iframe>
-  <script>
 
+  <script>
+    // Ghi log ra cả console và HTML
     const log = (msg) => {
       const el = document.getElementById('logOutput');
-      el.textContent += msg + '\n';
-      console.log(msg);
+      el.textContent += '\n' + msg;
+      console.log(msg); // vẫn giữ console cho máy tính
     };
+
     function getPlatform() {
-        const ua = navigator.userAgent.toLowerCase();
-        const isTablet = /ipad|tablet|(android(?!.*mobile))/i.test(ua);
-        const isMobile = /mobi|android|iphone/i.test(ua);
+      const ua = navigator.userAgent.toLowerCase();
+      const isTablet = /ipad|tablet|(android(?!.*mobile))/i.test(ua);
+      const isMobile = /mobi|android|iphone/i.test(ua);
 
-        console.log("User Agent:", ua);
-        console.log("Is Tablet:", isTablet);
+      log("User Agent: " + ua);
+      log("Is Tablet: " + isTablet);
 
-        if (isTablet) return 'tablet';
-        if (isMobile) return 'mobile';
-        return 'desktop';
+      if (isTablet) return 'tablet';
+      if (isMobile) return 'mobile';
+      return 'desktop';
     }
 
-    console.log("Platform:", getPlatform());
     const platform = getPlatform();
+    log("Platform: " + platform);
 
-    const baseURL = "https://www.appsheet.com/start/a7157b16-7592-4398-a7ef-7bd9689a7886"
+    const baseURL = "https://www.appsheet.com/start/a7157b16-7592-4398-a7ef-7bd9689a7886";
     const url = `${baseURL}?platform=${platform}#appName=Qu%E1%BA%A3nl%C3%BDTrungt%C3%A2m-49751858`;
     document.getElementById("appIframe").src = url;
   </script>
